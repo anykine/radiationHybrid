@@ -1,0 +1,1 @@
+../kstest/filter_genename.pl

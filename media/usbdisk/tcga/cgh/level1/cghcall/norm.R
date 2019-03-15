@@ -1,0 +1,7 @@
+library(CGHcall)
+x = read.table("all.cghcall.header", header=T)
+cghdata = make_cghRaw(x)
+cghdata1 = preprocess(cghdata, maxmiss=30, nchrom=24)
+norm.cghdata = normalize(cghdata1, method="median", smoothOutliers = TRUE)
+log2ratios = copynumber(norm.cghdata)
+write.table(log2ratios, file="all.cghcall.log2ratios.txt", sep="\t", quote=F)
